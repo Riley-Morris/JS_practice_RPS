@@ -10,8 +10,8 @@ function genUserChoice() {
 }
 let cChoice;
 let pChoice;
-let pWinOrLose;
-let cWinOrLose;
+let pWinOrLose = 0;
+let cWinOrLose = 0;
 
 function resolveGame(playerChoice, computerChoice) {
     
@@ -42,11 +42,11 @@ function resolveGame(playerChoice, computerChoice) {
 
 function loseScreen() {
     console.log(`You have lost with ${pChoice}, computer won with ${cChoice} please play again!`);
-    cWinOrLose += 1
+    cWinOrLose++
 }
 function winScreen() {
     console.log(`You have won with ${pChoice}, computer lost with ${cChoice} please play again!`);
-    pWinOrLose += 1
+    pWinOrLose++
 }
 function game() {
     for (let i = 1; i<6; i++) {
@@ -55,5 +55,6 @@ function game() {
     resolveGame(pChoice, cChoice)
     console.log(`score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
     }
+    console.log(`End of game, final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
 }
 game()
