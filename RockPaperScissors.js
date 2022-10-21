@@ -11,29 +11,30 @@ function genUserChoice() {
 let cChoice = genCompChoice();
 let pChoice = genUserChoice();
 
-function resolveGame(choice1, choice2) {
-    if (choice1 === choice2) {
-        console.log(`You have both selected ${choice1}, please play again!`);
-    }else if (choice1 === 'scissors' && choice2 === 'rock') {
+function resolveGame(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        console.log(`You have both selected ${playerChoice}, please play again!`);
+    }else if (playerChoice === 'scissors' && computerChoice === 'rock') {
        loseScreen(); 
-    }else if(choice1 === 'scissors' && choice2 === 'paper') {
+    }else if(playerChoice === 'scissors' && computerChoice === 'paper') {
         winScreen();
-    }else if(choice1 ==='rock' && choice2 ==='scissors') {
+    }else if(playerChoice ==='rock' && computerChoice ==='scissors') {
         winScreen();
-    }else if(choice1 ==='rock' && choice2 ==='paper') {
+    }else if(playerChoice ==='rock' && computerChoice ==='paper') {
         loseScreen();
-    }else if(choice1 === 'paper' && choice2 === 'rock') {
+    }else if(playerChoice === 'paper' && computerChoice === 'rock') {
         winScreen();
     }else {
         loseScreen();
     }
 }
-console.log(pChoice)
-console.log(cChoice)
+
 
 function loseScreen() {
-    console.log(`You have lost! with ${cChoice}, computer won with ${pChoice} please play again!`);
+    console.log(`You have lost with ${pChoice}, computer won with ${cChoice} please play again!`);
 }
 function winScreen() {
-    console.log(`You have won! with ${cChoice}, computer lost with ${pChoice} please play again!`);
+    console.log(`You have won with ${pChoice}, computer lost with ${cChoice} please play again!`);
 }
+
+resolveGame(pChoice, cChoice)
