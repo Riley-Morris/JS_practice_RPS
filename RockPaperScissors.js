@@ -12,7 +12,11 @@ let cChoice = genCompChoice();
 let pChoice = genUserChoice();
 
 function resolveGame(playerChoice, computerChoice) {
-    if (playerChoice === computerChoice) {
+    if (pChoice != 'rock' || pChoice != 'scissors' || pChoice != 'paper'){
+        console.log('please enter only "rock", "paper", "or scissors" exactly. Im too dumb to parse the information ');
+        let pChoice = genUserChoice();
+        resolveGame()
+    }else if (playerChoice === computerChoice) {
         console.log(`You have both selected ${playerChoice}, please play again!`);
     }else if (playerChoice === 'scissors' && computerChoice === 'rock') {
        loseScreen(); 
