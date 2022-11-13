@@ -73,10 +73,21 @@ function game() {
     cChoice = genCompChoice();
     resolveGame(pChoice, cChoice)
     if (pWinOrLose >= 5 || cWinOrLose >= 5) { {
-    console.log(`End of game, final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
-}}else {
-    console.log(`score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)  
-}}
+        removeElementsByClass('scores')
+        const container = document.querySelector('#scorebox')
+        const scoreUpdate = document.createElement('span');
+        scoreUpdate.classList.add('scores')
+        scoreUpdate.textContent = `End of game`
+        container.appendChild(scoreUpdate);
+    
+    }}
+        removeElementsByClass('scoresTwo')
+        const containerTwo = document.querySelector('#scoreboxTwo')
+        const scoreUpdateTwo = document.createElement('span')
+        scoreUpdateTwo.classList.add('scoresTwo')
+        scoreUpdateTwo.textContent = `The score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`
+        containerTwo.appendChild(scoreUpdateTwo)  
+}
 const buttons = document.querySelectorAll('button')
 buttons.forEach((button) => {
 button.addEventListener('click', genUserChoice)})

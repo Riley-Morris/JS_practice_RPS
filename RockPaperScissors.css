@@ -1,5 +1,5 @@
 
-#scorebox {
+.box {
     height: 25%;
     width: 25%;
     overflow: auto;
@@ -7,6 +7,9 @@
     margin-top: 20px;
 }
 
+#buttonContainer {
+    border: 0px;
+}
 .scores{
     
 }
