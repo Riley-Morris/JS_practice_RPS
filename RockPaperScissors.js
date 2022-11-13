@@ -79,15 +79,32 @@ function game() {
         scoreUpdate.classList.add('scores')
         scoreUpdate.textContent = `End of game`
         container.appendChild(scoreUpdate);
+
+        removeElementsByClass('scoresTwo')
+        if (pWinOrLose > cWinOrLose) {
+            const containerTwo = document.querySelector('#scoreboxTwo')
+            const scoreUpdateTwo = document.createElement('span')
+            scoreUpdateTwo.classList.add('scoresTwo')
+            scoreUpdateTwo.textContent = `The Final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. CONGRATS on the win!`
+            containerTwo.appendChild(scoreUpdateTwo) 
+            
+        }else {
+            const containerTwo = document.querySelector('#scoreboxTwo')
+            const scoreUpdateTwo = document.createElement('span')
+            scoreUpdateTwo.classList.add('scoresTwo')
+            scoreUpdateTwo.textContent = `The Final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. Better luck next time!`
+            containerTwo.appendChild(scoreUpdateTwo)
+        }
+         
     
-    }}
+    }}else{
         removeElementsByClass('scoresTwo')
         const containerTwo = document.querySelector('#scoreboxTwo')
         const scoreUpdateTwo = document.createElement('span')
         scoreUpdateTwo.classList.add('scoresTwo')
         scoreUpdateTwo.textContent = `The score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`
         containerTwo.appendChild(scoreUpdateTwo)  
-}
+}}
 const buttons = document.querySelectorAll('button')
 buttons.forEach((button) => {
 button.addEventListener('click', genUserChoice)})
