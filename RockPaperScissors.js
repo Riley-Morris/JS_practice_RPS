@@ -39,25 +39,30 @@ function resolveGame(playerChoice, computerChoice) {
 
 
 function loseScreen() {
-    console.log(`You have lost with ${pChoice}, computer won with ${cChoice} please play again!`);
+    // const initialText = querySelector('#initialText')
+    // if (initialText != null) {
+    //     initialText.remove()
+    // } 
+    const container = document.querySelector('#scorebox')
+    const scoreUpdate = document.createElement('span');
+    scoreUpdate.classList.add('scores')
+    scoreUpdate.textContent = `You have lost with ${pChoice}, computer won with ${cChoice}!`
+    console.log(scoreUpdate)
+    container.appendChild(scoreUpdate)
     cWinOrLose++
 }
 function winScreen() {
-    console.log(`You have won with ${pChoice}, computer lost with ${cChoice} please play again!`);
+    console.log(`You have won with ${pChoice}, computer lost with ${cChoice}`);
     pWinOrLose++
 }
 function game() {
-    if (pWinOrLose < 5 || cWinOrLose < 5) {
-        cChoice = genCompChoice();
-        resolveGame(pChoice, cChoice)
-}else {
-    console.log('end of game, put more here')
-}
-    
-    console.log(`score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
-    
+    cChoice = genCompChoice();
+    resolveGame(pChoice, cChoice)
+    if (pWinOrLose >= 5 || cWinOrLose >= 5) { {
     console.log(`End of game, final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
-}
+}}else {
+    console.log(`score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)  
+}}
 const buttons = document.querySelectorAll('button')
 buttons.forEach((button) => {
 button.addEventListener('click', genUserChoice)})
