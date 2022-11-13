@@ -21,6 +21,7 @@ function resolveGame(playerChoice, computerChoice) {
     
 
     if (playerChoice === computerChoice) {
+        removeElementsByClass('scores')
         const container = document.querySelector('#scorebox')
         const scoreUpdate = document.createElement('span');
         scoreUpdate.classList.add('scores')
@@ -42,12 +43,16 @@ function resolveGame(playerChoice, computerChoice) {
     }
 }
 
+function removeElementsByClass(className){
+    const elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
+
 
 function loseScreen() {
-    // const initialText = querySelector('#initialText')
-    // if (initialText != null) {
-    //     initialText.remove()
-    // } 
+    removeElementsByClass('scores')
     const container = document.querySelector('#scorebox')
     const scoreUpdate = document.createElement('span');
     scoreUpdate.classList.add('scores')
@@ -56,6 +61,7 @@ function loseScreen() {
     cWinOrLose++
 }
 function winScreen() {
+    removeElementsByClass('scores')
     const container = document.querySelector('#scorebox')
     const scoreUpdate = document.createElement('span');
     scoreUpdate.classList.add('scores')
