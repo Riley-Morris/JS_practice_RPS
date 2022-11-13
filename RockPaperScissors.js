@@ -47,12 +47,15 @@ function loseScreen() {
     const scoreUpdate = document.createElement('span');
     scoreUpdate.classList.add('scores')
     scoreUpdate.textContent = `You have lost with ${pChoice}, computer won with ${cChoice}!`
-    console.log(scoreUpdate)
     container.appendChild(scoreUpdate)
     cWinOrLose++
 }
 function winScreen() {
-    console.log(`You have won with ${pChoice}, computer lost with ${cChoice}`);
+    const container = document.querySelector('#scorebox')
+    const scoreUpdate = document.createElement('span');
+    scoreUpdate.classList.add('scores')
+    scoreUpdate.textContent = `You have won with ${pChoice}, computer lost with ${cChoice}!`
+    container.appendChild(scoreUpdate);
     pWinOrLose++
 }
 function game() {
