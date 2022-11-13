@@ -5,7 +5,7 @@ function genCompChoice() {
 }
 
 function genUserChoice() {
-    let userChoice = prompt('Please enter "rock", "paper", "or scissors"').toLowerCase();
+    // let userChoice = prompt('Please enter "rock", "paper", "or scissors"').toLowerCase();
     return userChoice;
 }
 let cChoice;
@@ -49,7 +49,7 @@ function winScreen() {
     pWinOrLose++
 }
 function game() {
-    for (let i = 1; i<6; i++) {
+    while (pWinOrLose || cWinOrLose < 5) {
     cChoice = genCompChoice();
     pChoice = genUserChoice();
     resolveGame(pChoice, cChoice)
