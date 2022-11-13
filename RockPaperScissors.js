@@ -21,7 +21,12 @@ function resolveGame(playerChoice, computerChoice) {
     
 
     if (playerChoice === computerChoice) {
-        console.log(`You have both selected ${playerChoice}, please play again!`);
+        const container = document.querySelector('#scorebox')
+        const scoreUpdate = document.createElement('span');
+        scoreUpdate.classList.add('scores')
+        scoreUpdate.textContent = `You have both selected ${playerChoice}, please play again!`
+        container.appendChild(scoreUpdate)
+        console.log();
     }else if (playerChoice === 'scissors' && computerChoice === 'rock') {
        loseScreen(); 
     }else if(playerChoice === 'scissors' && computerChoice === 'paper') {
