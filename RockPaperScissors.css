@@ -1,0 +1,8 @@
+
+#scorebox {
+    height: 25%;
+    width: 25%;
+    overflow: auto;
+    border: 1px solid;
+    margin-top: 20px;
+}

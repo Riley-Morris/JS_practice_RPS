@@ -1,28 +1,26 @@
+let cChoice;
+let pChoice;
+let pWinOrLose = 0;
+let cWinOrLose = 0;
+
+
 let choices = ['rock', 'paper', 'scissors']
 function genCompChoice() {
     let compChoice = choices[Math.floor(Math.random() * choices.length)];
     return compChoice;
 }
 
-function genUserChoice() {
-    // let userChoice = prompt('Please enter "rock", "paper", "or scissors"').toLowerCase();
-    return userChoice;
+function genUserChoice(clickID) {
+    pChoice = clickID.target.id
+    console.log(pChoice)
+    game()
+    return pChoice;
 }
-let cChoice;
-let pChoice;
-let pWinOrLose = 0;
-let cWinOrLose = 0;
 
 function resolveGame(playerChoice, computerChoice) {
     
 
-    if (playerChoice !== 'rock' && playerChoice !== 'scissors' && playerChoice !== 'paper'){
-       
-        console.log('please enter only "rock", "paper", "or scissors" exactly. Im too dumb to parse the information ');
-        console.log(playerChoice);
-        let pChoice = genUserChoice();
-        resolveGame(pChoice, computerChoice)
-    }else if (playerChoice === computerChoice) {
+    if (playerChoice === computerChoice) {
         console.log(`You have both selected ${playerChoice}, please play again!`);
     }else if (playerChoice === 'scissors' && computerChoice === 'rock') {
        loseScreen(); 
@@ -49,12 +47,17 @@ function winScreen() {
     pWinOrLose++
 }
 function game() {
-    while (pWinOrLose || cWinOrLose < 5) {
-    cChoice = genCompChoice();
-    pChoice = genUserChoice();
-    resolveGame(pChoice, cChoice)
+    if (pWinOrLose < 5 || cWinOrLose < 5) {
+        cChoice = genCompChoice();
+        resolveGame(pChoice, cChoice)
+}else {
+    console.log('end of game, put more here')
+}
+    
     console.log(`score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
-    }
+    
     console.log(`End of game, final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`)
 }
-game()
+const buttons = document.querySelectorAll('button')
+buttons.forEach((button) => {
+button.addEventListener('click', genUserChoice)})
