@@ -10,13 +10,6 @@ function genCompChoice() {
     return compChoice;
 }
 
-function genUserChoice(clickID) {
-    pChoice = clickID.target.id
-    console.log(pChoice)
-    game()
-    return pChoice;
-}
-
 function resolveGame(playerChoice, computerChoice) {
     
 
@@ -69,9 +62,12 @@ function winScreen() {
     container.appendChild(scoreUpdate);
     pWinOrLose++
 }
-function game() {
+
+function game(clickID) {
     cChoice = genCompChoice();
+    pChoice = clickID.target.id;
     resolveGame(pChoice, cChoice)
+    //game end here
     if (pWinOrLose >= 5 || cWinOrLose >= 5) { {
         removeElementsByClass('scores')
         const container = document.querySelector('#scorebox')
@@ -79,20 +75,20 @@ function game() {
         scoreUpdate.classList.add('scores')
         scoreUpdate.textContent = `End of game`
         container.appendChild(scoreUpdate);
-
         removeElementsByClass('scoresTwo')
+        
         if (pWinOrLose > cWinOrLose) {
             const containerTwo = document.querySelector('#scoreboxTwo')
             const scoreUpdateTwo = document.createElement('span')
             scoreUpdateTwo.classList.add('scoresTwo')
-            scoreUpdateTwo.textContent = `The Final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. CONGRATS on the win!`
+            scoreUpdateTwo.textContent = `The final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. CONGRATS on the win!`
             containerTwo.appendChild(scoreUpdateTwo) 
             
         }else {
             const containerTwo = document.querySelector('#scoreboxTwo')
             const scoreUpdateTwo = document.createElement('span')
             scoreUpdateTwo.classList.add('scoresTwo')
-            scoreUpdateTwo.textContent = `The Final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. Better luck next time!`
+            scoreUpdateTwo.textContent = `The final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. Better luck next time!`
             containerTwo.appendChild(scoreUpdateTwo)
         }
          
@@ -105,6 +101,13 @@ function game() {
         scoreUpdateTwo.textContent = `The score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}`
         containerTwo.appendChild(scoreUpdateTwo)  
 }}
-const buttons = document.querySelectorAll('button')
-buttons.forEach((button) => {
-button.addEventListener('click', genUserChoice)})
+
+function playGame(){
+    const buttons = document.querySelectorAll('button')
+    buttons.forEach((button) => {
+    button.addEventListener('click', game)})
+}
+playGame()
+
+//why does it work if using above func but not in the main game?
+//its because game is called within the click event, referencing itself.
