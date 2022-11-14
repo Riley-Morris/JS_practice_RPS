@@ -9,7 +9,12 @@
 
 #buttonContainer {
     border: 0px;
+    
 }
 .scores{
     
+}
+
+.rps {
+    display: none;
 }

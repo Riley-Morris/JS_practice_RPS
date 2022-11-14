@@ -102,10 +102,25 @@ function game(clickID) {
         containerTwo.appendChild(scoreUpdateTwo)  
 }}
 
-function playGame(){
-    const buttons = document.querySelectorAll('button')
+function buttonHider(){
+    const buttons = document.querySelectorAll('.rps')
     buttons.forEach((button) => {
-    button.addEventListener('click', game)})
+        const compStyles = window.getComputedStyle(button)
+        const displayStyle = compStyles.getPropertyValue('display')
+        if (displayStyle === 'none'){
+            button.style.display = 'block'
+            playButton.style.display = 'none' 
+        }
+    })
 }
-playGame()
 
+
+const buttons = document.querySelectorAll('.rps')
+buttons.forEach((button) => {
+button.addEventListener('click', game)})
+const playButton = document.querySelector('#playButton')
+playButton.addEventListener('click', buttonHider)
+
+
+
+ 
