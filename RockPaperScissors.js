@@ -109,5 +109,3 @@ function playGame(){
 }
 playGame()
 
-//why does it work if using above func but not in the main game?
-//its because game is called within the click event, referencing itself.
