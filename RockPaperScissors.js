@@ -82,18 +82,37 @@ function game(clickID) {
             const scoreUpdateTwo = document.createElement('span')
             scoreUpdateTwo.classList.add('scoresTwo')
             scoreUpdateTwo.textContent = `The final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. CONGRATS on the win!`
+            //reset scores
+            pWinOrLose = 0
+            cWinOrLose = 0
             containerTwo.appendChild(scoreUpdateTwo) 
+            buttons.forEach((button) => {
+                const compStyles = window.getComputedStyle(button)
+                const displayStyle = compStyles.getPropertyValue('display')
+                button.style.display = 'none'
+        })
+            playButton.style.display = 'block'
+            playButton.textContent = 'Play Again' 
+
             
-        }else {
+            }else {
             const containerTwo = document.querySelector('#scoreboxTwo')
             const scoreUpdateTwo = document.createElement('span')
             scoreUpdateTwo.classList.add('scoresTwo')
             scoreUpdateTwo.textContent = `The final score is PLAYER: ${pWinOrLose}, COMPUTER: ${cWinOrLose}. Better luck next time!`
+            pWinOrLose = 0
+            cWinOrLose = 0
             containerTwo.appendChild(scoreUpdateTwo)
-        }
+            buttons.forEach((button) => {
+                const compStyles = window.getComputedStyle(button)
+                const displayStyle = compStyles.getPropertyValue('display')
+                button.style.display = 'none'
+        })
+            playButton.style.display = 'block' 
+            playButton.textContent = 'Play Again' 
          
     
-    }}else{
+    }}}else{
         removeElementsByClass('scoresTwo')
         const containerTwo = document.querySelector('#scoreboxTwo')
         const scoreUpdateTwo = document.createElement('span')
@@ -103,13 +122,15 @@ function game(clickID) {
 }}
 
 function buttonHider(){
-    const buttons = document.querySelectorAll('.rps')
     buttons.forEach((button) => {
         const compStyles = window.getComputedStyle(button)
         const displayStyle = compStyles.getPropertyValue('display')
         if (displayStyle === 'none'){
             button.style.display = 'block'
             playButton.style.display = 'none' 
+        }else {
+            button.style.display = 'none'
+            playButton.style.display = 'block' 
         }
     })
 }
