@@ -1,4 +1,9 @@
+body {
+    background-color:#FFFAFF;
+    display: flex;
+    flex-direction: column;
 
+}
 .box {
     height: 25%;
     width: 25%;
@@ -9,12 +14,14 @@
 
 #buttonContainer {
     border: 0px;
-    
+     
 }
-.scores{
-    
+.imageBox{
+    justify-self: end;
+    position: absolute;
+    bottom: 0;
 }
 
 .rps {
-    display: none;
+    display: none; 
 }
