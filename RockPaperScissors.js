@@ -64,6 +64,7 @@ function winScreen() {
 }
 
 function game(clickID) {
+    console.log(clickID)
     cChoice = genCompChoice();
     pChoice = clickID.target.id;
     resolveGame(pChoice, cChoice)
