@@ -79,6 +79,7 @@ function game(clickID) {
         removeElementsByClass('scoresTwo')
         
         if (pWinOrLose > cWinOrLose) {
+            winAudio.play()
             const containerTwo = document.querySelector('#scoreboxTwo')
             const scoreUpdateTwo = document.createElement('span')
             scoreUpdateTwo.classList.add('scoresTwo')
@@ -97,6 +98,7 @@ function game(clickID) {
 
             
             }else {
+            loseAudio.play()
             const containerTwo = document.querySelector('#scoreboxTwo')
             const scoreUpdateTwo = document.createElement('span')
             scoreUpdateTwo.classList.add('scoresTwo')
@@ -136,7 +138,8 @@ function buttonHider(){
     })
 }
 
-
+const winAudio = new Audio('win.flac')
+const loseAudio = new Audio('lose.flac')
 const buttons = document.querySelectorAll('.rps')
 buttons.forEach((button) => {
 button.addEventListener('click', game)})
