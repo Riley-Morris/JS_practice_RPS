@@ -1,5 +1,6 @@
  body {
     background-color:#FFFAFF;
+    font-family: 'Courier New', Courier, monospace;
  }
  #container {
     display: flex;
@@ -15,11 +16,25 @@
 
 #buttonContainer {
     border: 0px;
+    display: flex;
+    
      
 }
 button {
     width: 10vh;
-    height: 2vh;
+    height: 10vh;
+    margin: 1vh;
+    border-radius: 12px;
+}
+
+#rock {
+    background-color: rgb(110, 110, 89);
+}
+#paper {
+    background-color: white;
+}
+#scissors {
+    background-color: #C1C3C4;
 }
 
 .imageBox{
