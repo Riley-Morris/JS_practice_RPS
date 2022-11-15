@@ -1,8 +1,9 @@
-body {
+ body {
     background-color:#FFFAFF;
+ }
+ #container {
     display: flex;
     flex-direction: column;
-
 }
 .box {
     height: 25%;
@@ -16,10 +17,17 @@ body {
     border: 0px;
      
 }
+button {
+    width: 10vh;
+    height: 2vh;
+}
+
 .imageBox{
-    justify-self: end;
+    display: flex;
     position: absolute;
     bottom: 0;
+    align-self: center;
+    justify-self: center;
 }
 
 .rps {
