@@ -1,7 +1,7 @@
  body {
     background-color:#FFFAFF;
     font-family: 'Courier New', Courier, monospace;
-    
+    font-size: 2vw;
  }
  #container {
     display: flex;
@@ -10,7 +10,7 @@
 }
 .box {
     height: 25%;
-    width: 25%;
+    width: 50%;
     overflow: auto;
     border: 1px solid;
     margin-top: 20px;
@@ -23,11 +23,14 @@
     justify-content: center;
 }
 button {
-    width: 10vh;
-    height: 10vh;
-    margin: 1vh;
+    
+    width: 15vh;
+    height: 15vh;
+    margin: 2vh;
     border-radius: 12px;
     font-weight: 900;
+    margin-top: 5vh;
+    transition: all 0.1s; 
 }
 
 #rock {
@@ -50,11 +53,11 @@ button {
 
 .rps {
     display: none;
-    transition: all 0.07s; 
+    
 }
 
-.playing {
+button:active {
     transform: scale(1.2);
-    border-color: blue;
-    box-shadow: 0 0 10px blue;
+    border-color: navy;
+    box-shadow: 0 0 10px navy;
 }
