@@ -23,7 +23,6 @@
     justify-content: center;
 }
 button {
-    
     width: 15vh;
     height: 15vh;
     margin: 2vh;
@@ -31,6 +30,7 @@ button {
     font-weight: 900;
     margin-top: 5vh;
     transition: all 0.1s; 
+    overflow: hidden;
 }
 
 #rock {
@@ -60,4 +60,8 @@ button:active {
     transform: scale(1.2);
     border-color: navy;
     box-shadow: 0 0 10px navy;
+}
+span {
+    display: block;
+    margin: 10px 10px 10px 10px;
 }
